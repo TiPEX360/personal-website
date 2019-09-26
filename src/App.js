@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-import AnimatedLetter from './components/AnimatedLetter.js'
-import Main from './components/pages/Main.js'
+import Home from './components/pages/Home.js'
 import './App.css';
+
 
 class App extends Component {
   render() {
     return (
-      <Main />
+      <React.Fragment>
+        <a href="" className="home-link">ts.</a>
+        <Home />
+      </React.Fragment>
     );
   }
 }
-
+// http://weaintplastic.com/
+// next colour idea: dark blue. slide elements up, change colour, slide into page... smth like that
 export default App;

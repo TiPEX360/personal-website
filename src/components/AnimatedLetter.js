@@ -1,56 +1,67 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './AnimatedLetter.css';
 import LeftLetter from './LeftLetter.js';
 import RightLetter from './RightLetter.js';
 import TopLetter from './TopLetter.js'
 import BottomLetter from './BottomLetter.js';
-import FakeLetter from './FakeLetter';
 
 
 class AnimatedLetter extends Component {
     
     constructor(props) {
         super(props);
-        
+
         this.state = {
-            type: Math.ceil(Math.random()*5) - 1,
+            color: '#ffffff',
+            output: null,
         }
     }
+    
+    componentDidMount() {
+        this.generateLetter();
+        setTimeout(this.changeColour.bind(this), 2000);
+    }
 
+    changeColour() {
+        this.setState({color: '#020202'});
+    }
+
+    generateLetter() {
+
+        const delay = this.props.delay ? this.props.delay : (Math.random() * 2000);
+        const interval = this.props.interval ? this.props.interval : 3000 + Math.random() * 4000;
+        const type = Math.ceil(Math.random()*5) - 1;
+    
+        switch(type) {
+            case 0:
+                this.setState({output: <LeftLetter interval={interval} delay={delay} letter={this.props.letter}/>});
+                break;
+            case 1:
+                this.setState({output: <RightLetter interval={interval} delay={delay} letter={this.props.letter}/>});
+                break;
+            case 2:
+                this.setState({output: <TopLetter interval={interval} delay={delay} letter={this.props.letter}/>});
+                break;
+            default:
+                this.setState({output: <BottomLetter interval={interval} delay={delay} letter={this.props.letter}/>});
+        }
+    }
     
     render() { 
         const letterContainer = {
-            width: 150,
-            height: 240,
+            width: this.props.width ? this.props.width : 120,
+            height: this.props.height ? this.props.height : 50,
             position: 'relative',
-            margin: 0,
-            padding: 0,
             overflow: 'hidden',
             float: 'left',
-            fontSize: 160,
+            fontSize: 20,
             fontFamily: "'Major Mono Display', monospace",
+            transition: 'color 1s',
         }
 
-        let output = null;
-        switch(this.state.type) {
-            case 0:
-                output = <LeftLetter letter={this.props.letter}/>;
-                break;
-            case 1:
-                output = <RightLetter letter={this.props.letter}/>;
-                break;
-            case 2:
-                output = <BottomLetter letter={this.props.letter}/>;
-            case 3:
-                output = <FakeLetter letter={this.props.letter}/>;
-                break;
-            default:
-                output = <TopLetter letter={this.props.letter}/>;
-        }
         return (
-            <div style={letterContainer}>
-                {output}
+            <div style={{...letterContainer, color: this.state.color}}>
+                {this.state.output}
             </div>        
         );
 

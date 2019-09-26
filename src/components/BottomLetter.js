@@ -1,28 +1,46 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class TopLetter extends Component {
+class BottomLetter extends Component {
+    
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            position: 0,
+        };
+        setInterval(this.togglePosition.bind(this), this.props.interval);
+        setTimeout(this.togglePosition.bind(this), this.props.delay);
+    }
+    
+    togglePosition() {
+        console.log(this.state.position);
+        if(this.state.position === 50 || this.state.position === 0) this.setState({position: 25});
+        else this.setState({position: 50});
+    }
+    
     render() {
         const twoLetters = {
+            transition: 'transform 0.4s ease',
             float: 'left',
             position: 'relative',
             width: '100%',
-            height: '200%',
-            animationName: 'sBottom',
-            animationDuration: '5s',
-            animationDelay: ((Math.random()*4) + 's'),
-            animationIterationCount: 'infinite',
-
+            height: '400%',
         }
-
+    
         const letter = {
             position: 'relative',
-            width: '10%',
-            height: '50%',
+            width: '100%',
+            height: '25%',
+            textAlign: 'center',
         }
+    
 
         return(
-            <div style={twoLetters}>
+            <div onMouseEnter={() => (this.setState({position: 50,} ))} style={{...twoLetters, transform: 'translateY(-' + this.state.position + '%)',}}>
+                <div style={letter}>
+
+                </div>
                 <div style={letter}>
                     {this.props.letter}
                 </div>
@@ -36,8 +54,8 @@ class TopLetter extends Component {
 
 
 //PropTypes
-TopLetter.propTypes = {
+BottomLetter.propTypes = {
     letter: PropTypes.string.isRequired,
 }
 
-export default TopLetter;
+export default BottomLetter;
