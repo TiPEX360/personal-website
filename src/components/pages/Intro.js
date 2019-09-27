@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Intro extends Component{
+export default class Intro extends Component {
     constructor(props) {
         super(props);
 
@@ -10,16 +10,18 @@ export default class Intro extends Component{
     }
     
     componentDidMount() {
+        document.body.classList.add('loading');
         setTimeout(this.move.bind(this), 2000);
     }
 
     move() {
         this.setState({position: -100});
+        document.body.classList.remove('loading');
     }
 
     render() {
         const introStyle = {
-            position: 'absolute',
+            position: 'fixed',
             top: 0,
             height: '100%',
             width: '100%',

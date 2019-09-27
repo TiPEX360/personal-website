@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AnimatedLetter from '../AnimatedLetter.js';
+import { Link } from 'react-router-dom';
 import Intro from './Intro.js';
 
 export default class Home extends Component {
@@ -52,7 +53,7 @@ export default class Home extends Component {
                         <AnimatedLetter letter='z'/> 
                     </div>
                     <p>(tym, for short)</p>
-                    <div className="button"><p>let me tell you a bit more about myself!</p></div>
+                    <div className="button"><Link to='/more'>let me tell you a bit about myself!</Link></div>
                 </div>
             </React.Fragment>
         )
