@@ -40,7 +40,7 @@ export default class Home extends Component {
                 <div style={mainWrapperStyle}>
                     <img style={portraitStyle} src={portrait} alt='face' />
                     <Intro />
-                    <p><span style={{fontSize: 28}}>hi, i'm</span></p>
+                    <p><span style={{fontSize: 22}}><b>hi</b>, <b>i</b>'<b>m</b></span></p>
                     <div style={flexStyle}>
                         <AnimatedLetter letter='t'/>
                         <AnimatedLetter letter='y'/>
@@ -52,8 +52,8 @@ export default class Home extends Component {
                         <AnimatedLetter letter='s'/>
                         <AnimatedLetter letter='z'/> 
                     </div>
-                    <p>(tym, for short)</p>
-                    <div className="button"><Link to='/more'>let me tell you a bit about myself!</Link></div>
+                    <p><span style={{fontSize: 15}}>(tym, for short)</span></p>
+                    <Link className="button" to='/more'>let me tell you a bit about myself!</Link>
                 </div>
             </React.Fragment>
         )

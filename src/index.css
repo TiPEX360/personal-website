@@ -9,7 +9,3 @@ html, body, #root {
   overflow: hidden;
   height:100%;
 }
-
-Link {
-  text-decoration: none;
-}

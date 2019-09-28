@@ -14,7 +14,6 @@ class LeftLetter extends Component {
     }
     
     togglePosition() {
-        console.log(this.state.position);
         if(this.state.position === 50 || this.state.position === 0) this.setState({position: 25});
         else this.setState({position: 50});
     }

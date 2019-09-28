@@ -1,0 +1,31 @@
+.pieOption1 {
+    background-color: #1d1d1f;
+    color: #f2f2f2;
+}
+
+.pieOption2 {
+    background-color: #1d1d1f;
+    color: #f2f2f2;
+}
+.pieOption3 {
+    background-color: #1d1d1f;
+    color: #f2f2f2;
+}
+.pieOption4 {
+    background-color: #1d1d1f;
+    color: #f2f2f2;
+}
+
+.pieOption1:hover {
+    background-color: #C8D94A;
+}
+
+.pieOption2:hover {
+    background-color: #268391;
+}
+.pieOption3:hover {
+    background-color: #E3864F;
+}
+.pieOption4:hover {
+    background-color: #D25242;
+}
