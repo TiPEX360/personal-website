@@ -1,19 +1,35 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Home from './components/pages/Home.js';
 import More from './components/pages/More.js';
-import './App.css';
-
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+        homePosition: 0,
+    }
+  }
+
+  showHome() {
+    this.setState({homePosition: 0});
+  }
+
+  hideHome() {
+    this.setState({homePosition: -100});
+  }
 
   render() {
     return (
-      <Router>
-        <Link to="/" className='home-link'>ts.</Link>
-        <Route exact path='/' component={Home} />
-        <Route path='/more' component={More} />
-      </Router>
+      <React.Fragment>
+        <Link to='/' className='home-link' onClick={this.showHome.bind(this)}>ts.</Link>
+          <Home hide={this.hideHome.bind(this)} position={this.state.homePosition}/>
+          <Switch>
+            <Route component={More} />         
+          </Switch>
+      </React.Fragment>
     );
   }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import './More.css';
 
 export default class More extends Component {
@@ -14,10 +15,14 @@ export default class More extends Component {
     render() {
 
         const mainWrapperStyle = {
+            position: 'absolute',
+            top: 0,
+            left: 0,
             width: '100%',
             minHeight: '100vh',
             backgroundColor: '#1d1d1f',
             textAlign: 'center',
+            zIndex: '-2',
         }
 
         const pieWrapperStyle = {
@@ -25,7 +30,7 @@ export default class More extends Component {
             minHeight: '40%',
             display: 'inline-block',
             position: 'relative',
-            margin: 200,
+            margin: 100,
         }
 
         const pieBorderStyle = {
@@ -82,9 +87,9 @@ export default class More extends Component {
                             <div style={centerStyle}>
 
                             </div>
-                            <div className="pieOption1" style={quarterStyle}>
+                            <Link to="/about" className="pieOption1" style={quarterStyle}>
 
-                            </div>
+                            </Link>
                             <div className="pieOption2" style={quarterStyle}>
                                 
                             </div>

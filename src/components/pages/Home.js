@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import Intro from './Intro.js';
 
 export default class Home extends Component {
+
     render() {
+
         const portrait = './media/main.jpg';
         
         const flexStyle = {
@@ -17,14 +19,17 @@ export default class Home extends Component {
         }
         
         const mainWrapperStyle = {
+            position: 'relative',
             backgroundColor: '#f3f3f3',
             backgroundPosition: 'center center',
             backgroundRepeat: 'no-repeat',
             backgroundSize: '100% auto',
             width: '100%',
-            height: '100%',
+            minHeight: '100vh',
             textAlign: 'center',
             fontFamily: "'Major Mono Display', monospace",
+            boxShadow: '0px 5px 10px #050505',
+            transition: 'transform 1s cubic-bezier(.77,0,.175,1).2s',
         }
 
         const portraitStyle = {
@@ -37,7 +42,7 @@ export default class Home extends Component {
 
         return (
             <React.Fragment>
-                <div style={mainWrapperStyle}>
+                <div style={{...mainWrapperStyle, transform: 'translateY(' + this.props.position + '%)'}}>
                     <img style={portraitStyle} src={portrait} alt='face' />
                     <Intro />
                     <p><span style={{fontSize: 22}}><b>hi</b>, <b>i</b>'<b>m</b></span></p>
@@ -53,7 +58,7 @@ export default class Home extends Component {
                         <AnimatedLetter letter='z'/> 
                     </div>
                     <p><span style={{fontSize: 15}}>(tym, for short)</span></p>
-                    <Link className="button" to='/more'>let me tell you a bit about myself!</Link>
+                    <Link onClick={this.props.hide} className="button" to='/more'>let me tell you a bit about myself!</Link>
                 </div>
             </React.Fragment>
         )
