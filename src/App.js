@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Home from './components/pages/Home.js';
 import More from './components/pages/More.js';
 
@@ -28,7 +27,7 @@ class App extends Component {
           <Home hide={this.hideHome.bind(this)} position={this.state.homePosition}/>
           <Switch>
             <Route component={More} />         
-          </Switch>
+          </Switch>3
       </React.Fragment>
     );
   }

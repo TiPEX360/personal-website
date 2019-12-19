@@ -1,28 +1,53 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import './More.css';
+import svgComputer from '../../svg/computer.svg'
+import ComputerScienceSide from './ComputerScienceSide';
+import ArtSide from './ArtSide';
+import ClimbingSide from './ClimbingSide';
+import GuitarSide from './GuitarSide';
 
 export default class More extends Component {
 
+    constructor(props) {
+        super(props);
 
-// /* Color Theme Swatches in Hex */
-// .Tema-de-Color-1-1-hex { color: #1D1D1F; }
-// .Tema-de-Color-1-2-hex { color: #268391; }
-// .Tema-de-Color-1-3-hex { color: #1C2126; }
-// .Tema-de-Color-1-4-hex { color: #D25242; }
-// .Tema-de-Color-1-5-hex { color: #E3864F; }
+        this.state = {
+            sideShow: [false, false, false, false],
+        }
+        console.log("constructed!")
+    }
+
+    csEnter() {
+        let temp = [true, false, false , false]
+        this.setState({sideShow: temp})
+    }
+
+    climbingEnter() {
+        let temp = [false, true, false , false]
+        this.setState({sideShow: temp})
+    }
+
+    artEnter() {
+        let temp = [false, false, true , false]
+        this.setState({sideShow: temp})
+    }
+
+    guitarEnter() {
+        let temp = [false, false, false , true]
+        this.setState({sideShow: temp})
+    }
 
     render() {
 
         const mainWrapperStyle = {
             position: 'absolute',
-            top: 0,
-            left: 0,
             width: '100%',
             minHeight: '100vh',
             backgroundColor: '#1d1d1f',
             textAlign: 'center',
-            zIndex: '-2',
+            zIndex: '-1',
+            
         }
 
         const pieWrapperStyle = {
@@ -76,7 +101,26 @@ export default class More extends Component {
             borderStyle: 'solid',
             borderRadius: '50%',
             borderColor: '#f3f3f3',
-            zIndex: 2,
+            zIndex: 1,
+        }
+
+        const leftContent = {
+            left: 0,
+            textAlign: 'left',
+            width: 'calc(30% - 100px)',
+        }
+        
+        const content = {
+            position: 'absolute',
+            top: 0,
+            margin: 100,
+            color: '#f3f3f3',
+            fontFamily: 'Raleway',
+
+        }
+
+        const rightContent = {
+            right: 0,
         }
 
         return(
@@ -87,20 +131,27 @@ export default class More extends Component {
                             <div style={centerStyle}>
 
                             </div>
-                            <Link to="/about" className="pieOption1" style={quarterStyle}>
+                            <div onMouseEnter={this.csEnter.bind(this)} className="pieOption1" style={quarterStyle}>
 
-                            </Link>
-                            <div className="pieOption2" style={quarterStyle}>
+                            </div>
+                            <div onMouseEnter={this.climbingEnter.bind(this)} className="pieOption2" style={quarterStyle}>
                                 
                             </div>
-                            <div className="pieOption3" style={quarterStyle}>
+                            <div onMouseEnter={this.guitarEnter.bind(this)} className="pieOption3" style={quarterStyle}>
                             
                             </div>
-                            <div className="pieOption4" style={quarterStyle}>
+                            <div onMouseEnter={this.artEnter.bind(this)}className="pieOption4" style={quarterStyle}>
                             
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div style={{...leftContent, ...content}}>
+                    {this.state.sideShow[0] && <ComputerScienceSide />}
+                </div>
+                <div style={{...rightContent, ...content}}>
+                {this.state.sideShow[1] && <ClimbingSide />}
                 </div>
             </div>
         );

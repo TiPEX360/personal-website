@@ -19,7 +19,7 @@ export default class Home extends Component {
         }
         
         const mainWrapperStyle = {
-            position: 'relative',
+            position: 'absolute',
             backgroundColor: '#f3f3f3',
             backgroundPosition: 'center center',
             backgroundRepeat: 'no-repeat',
@@ -28,8 +28,7 @@ export default class Home extends Component {
             minHeight: '100vh',
             textAlign: 'center',
             fontFamily: "'Major Mono Display', monospace",
-            boxShadow: '0px 5px 10px #050505',
-            transition: 'transform 1s cubic-bezier(.77,0,.175,1).2s',
+            transition: 'transform 1s cubic-bezier(.77,0,.175,1)',
         }
 
         const portraitStyle = {
@@ -39,6 +38,7 @@ export default class Home extends Component {
             borderRadius: '100%',
             margin: 100,
         }
+
 
         return (
             <React.Fragment>
