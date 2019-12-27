@@ -58,7 +58,7 @@ export default class Home extends Component {
                         <AnimatedLetter letter='z'/> 
                     </div>
                     <p><span style={{fontSize: 15}}>(tym, for short)</span></p>
-                    <Link onClick={this.props.hide} className="button" to='/more'>let me tell you a bit about myself!</Link>
+                    <Link onClick={this.props.hideHome} className="button" to='/more'>let me tell you a bit about myself!</Link>
                 </div>
             </React.Fragment>
         )

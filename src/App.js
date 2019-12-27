@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import Home from './components/pages/Home.js';
-import More from './components/pages/More.js';
+import Content from './components/pages/Content.js';
 
 class App extends Component {
   constructor(props) {
@@ -24,10 +24,8 @@ class App extends Component {
     return (
       <React.Fragment>
         <Link to='/' className='home-link' onClick={this.showHome.bind(this)}>ts.</Link>
-          <Home hide={this.hideHome.bind(this)} position={this.state.homePosition}/>
-          <Switch>
-            <Route component={More} />         
-          </Switch>3
+        <Home hideHome={this.hideHome.bind(this)} position={this.state.homePosition}/>
+        <Content />
       </React.Fragment>
     );
   }
