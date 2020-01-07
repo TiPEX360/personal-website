@@ -6,7 +6,8 @@ class Content extends Component {
 
         this.state = {
             scrollPos: 0,
-            dotAnimationProgress: 0.1,
+            stickyProgress: 0.1,
+            dotProgress: 0,
         }
         this.handleScroll = this.handleScroll.bind(this)
     }
@@ -18,7 +19,7 @@ class Content extends Component {
             threshold: 0.0
         }
         let callback = this.stickyVisible.bind(this)
-        let target = document.querySelector('#animated');
+        let target = document.querySelector('#observerTarget');
         let observer = new IntersectionObserver(callback, options)
         observer.observe(target)
     }
@@ -35,63 +36,97 @@ class Content extends Component {
     }
 
     handleScroll() {
-        let progress = ((document.querySelector('#sticky-wrapper').getBoundingClientRect().bottom / document.documentElement.clientHeight - 1) / (document.documentElement.getBoundingClientRect().height / document.documentElement.clientHeight - 1))
-        if(progress > 1) progress = 1
-        else if (progress < 0) progress = 0
-        console.log(1 - progress)
-        this.setState({dotAnimationProgress: 1 - progress})
-    }
+        let progress = 1 - ((document.querySelector('#sticky-wrapper').getBoundingClientRect().bottom / document.documentElement.clientHeight - 1) / (document.documentElement.getBoundingClientRect().height / document.documentElement.clientHeight - 1))
+        if(progress < 0) progress = 0
+        else if (progress > 1) progress = 1
 
+        let dotProgress = progress < 0.5 ? 0 : (progress - 0.5) / 0.5
+        
+        this.setState(
+            {
+                stickyProgress: progress, 
+                dotProgress: dotProgress
+            }
+        )
+    }
+    
     render() {
         const stickyWrapper = {
             position: 'relative',
             backgroundColor: 'black',
             float: 'left',
             top: '100vh',
-            height: '300vh',
+            height: '500vh',
             width: '100%',
             zIndex: -1,
         }
-
-        const stickyArt = {
+        
+        const stickySection = {
             position: 'sticky',
-            textAlign: 'center',
-            top: 'calc(50vh - 100pt)',
-            //height: '100vh',
-            //width: '100%',
-            fontFamily: "'Lato', sans-serif",
-            fontSize: 100,
+            top: 0,
+            height: '100vh',
             color: 'white',
+            overflow: 'hidden',
+            backgroundImage: 'url(./media/2.png)',
+            backgroundAttachment: 'fixed',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
         }
-
+        
         const animatedDot = {
-            position: 'relative',
+            display: 'inline-block',
             backgroundColor: 'white',
             borderRadius: '100%',
             width: 10,
             height: 10,
-            top: 0,
-            left: 'calc(50vw - 5px)',
         }
-
-        const overflow = {
-            position: 'relative',
+        
+        const bigStyle = {
+            position: 'sticky',
+            top: 20,
+            fontSize: 100,
+        }
+        
+        const foreGround = {
+            backgroundColor: 'black',
+            mixBlendMode: 'multiply',
             width: '100%',
             height: '100%',
+        }
+        
+        const text = {
+            position: 'absolute',
+            fontSize: 20,
+            fontFamily: "'Lato', sans-serif",
+            textAlign: 'right',
+            top: 'calc(50vh - 100pt)',
+            right: '50vw',
+        }
+        
+        const scrollingText = {
+            height: '100pt',
             overflow: 'hidden',
         }
 
-        const dotScale = this.state.dotAnimationProgress * document.documentElement.getBoundingClientRect().width + 1.0
+        const dotScale = this.state.dotProgress * (document.documentElement.getBoundingClientRect().width /2) + 1.0
+        const textOffset = this.state.textProgres * (-300)
+        console.log(this.state.dotProgress, this.state.stickyProgress)
+        
         return(
-                <div id='sticky-wrapper' style={stickyWrapper}>
-                    <div id='sticky' style={stickyArt}>
-                        ABC
-            
-                    </div>
-                    <div style={overflow}>
-                        <div id='animated' style={{...animatedDot, transform: 'scale(' + dotScale + ')'}}></div>
+            <div id='sticky-wrapper' style={stickyWrapper}>
+                <div id='sticky' style={stickySection}>
+                    <div style={foreGround}>
+                        <div style={text}>
+                            I love<br />
+                            <div style={bigStyle}>Coding.</div><br />
+                            <div style={bigStyle}>Music.</div><br />
+                            <div style={bigStyle}>Climbing.</div><br />
+                            <span style={bigStyle}>CG Art</span>
+                            <div id='observerTarget' style={{...animatedDot, transform: 'scale(' + dotScale + ')'}}></div>
+                        </div>
                     </div>
                 </div>
+            </div>
         )
     }
 }
