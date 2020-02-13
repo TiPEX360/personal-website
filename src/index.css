@@ -5,6 +5,11 @@ html, body, #root {
   width: 100%;
 }
 
+.preventScroll {
+  overflow: hidden;
+  height: auto;
+}
+
 a {
   text-decoration: none;
 }
@@ -43,8 +48,6 @@ a {
   background-color: #2b2b2b;
   color: #f3f3f3;
 }
-
-/* React transition group */
 
 @import url('https://fonts.googleapis.com/css?family=Major+Mono+Display&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Intro extends Component {
+export default class LoadingScreen extends Component {
     constructor(props) {
         super(props);
 
@@ -10,13 +10,12 @@ export default class Intro extends Component {
     }
     
     componentDidMount() {
-        document.body.classList.add('loading');
+        document.body.classList.add('preventScroll');
         setTimeout(this.move.bind(this), 2000);
     }
 
     move() {
         this.setState({position: -100});
-        document.body.classList.remove('loading');
     }
 
     render() {

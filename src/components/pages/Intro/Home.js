@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import AnimatedLetter from '../AnimatedLetter.js';
+import AnimatedLetter from '../../AnimatedLetter.js';
 import { Link } from 'react-router-dom';
-import Intro from './Intro.js';
+import LoadingScreen from './LoadingScreen.js';
 
 export default class Home extends Component {
 
@@ -29,6 +29,8 @@ export default class Home extends Component {
             textAlign: 'center',
             fontFamily: "'Major Mono Display', monospace",
             transition: 'transform 1s cubic-bezier(.77,0,.175,1)',
+            height: '100%',
+            overflowY: 'scroll',
         }
 
         const portraitStyle = {
@@ -41,10 +43,9 @@ export default class Home extends Component {
 
 
         return (
-            <React.Fragment>
                 <div style={{...mainWrapperStyle, transform: 'translateY(' + this.props.position + '%)'}}>
                     <img style={portraitStyle} src={portrait} alt='face' />
-                    <Intro />
+                    <LoadingScreen />
                     <p><span style={{fontSize: 22}}><b>hi</b>, <b>i</b>'<b>m</b></span></p>
                     <div style={flexStyle}>
                         <AnimatedLetter letter='t'/>
@@ -60,7 +61,6 @@ export default class Home extends Component {
                     <p><span style={{fontSize: 15}}>(tym, for short)</span></p>
                     <Link onClick={this.props.hideHome} className="button" to='/more'>let me tell you a bit about myself!</Link>
                 </div>
-            </React.Fragment>
         )
     }
 }

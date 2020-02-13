@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
-import Home from './components/pages/Home.js';
+import Home from './components/pages/Intro/Home.js';
 import Content from './components/pages/Content.js';
 
 class App extends Component {
@@ -13,10 +13,12 @@ class App extends Component {
   }
 
   showHome() {
+    document.body.classList.add('preventScroll')
     this.setState({homePosition: 0});
   }
 
   hideHome() {
+    document.body.classList.remove('preventScroll')
     this.setState({homePosition: -100});
   }
 
