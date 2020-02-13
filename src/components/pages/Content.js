@@ -55,7 +55,6 @@ class Content extends Component {
             position: 'relative',
             backgroundColor: 'black',
             float: 'left',
-            top: '100vh',
             height: '500vh',
             width: '100%',
             zIndex: -1,

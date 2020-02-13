@@ -19,7 +19,7 @@ export default class Home extends Component {
         }
         
         const mainWrapperStyle = {
-            position: 'absolute',
+            position: 'fixed',
             backgroundColor: '#f3f3f3',
             backgroundPosition: 'center center',
             backgroundRepeat: 'no-repeat',
