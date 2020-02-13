@@ -7,7 +7,7 @@ export default class Home extends Component {
 
     render() {
 
-        const portrait = './media/silhouette.jpeg';
+        const portrait = './media/silhouette.png';
         
         const flexStyle = {
             position: 'relative',
@@ -19,24 +19,18 @@ export default class Home extends Component {
         }
         
         const mainWrapperStyle = {
-            position: 'fixed',
-            backgroundColor: '#000000',
-            background: 'linear-gradient(0deg, rgba(18,15,10,1) 0%, rgba(29,29,18,1) 25%, rgba(24,29,18,1) 50%, rgba(25,36,27,1) 75%, rgba(19,28,20,1) 100%)',
-            backgroundPosition: 'center center',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: '100% auto',
+            position: 'relative',
+            backgroundColor: 'transparent',
             width: '100%',
             minHeight: '100vh',
             textAlign: 'center',
             fontFamily: "'Major Mono Display', monospace",
             transition: 'transform 1s cubic-bezier(.77,0,.175,1)',
-            height: '100%',
-            overflowY: 'scroll',
         }
 
         const portraitStyle = {
             maxWidth: 425,
-            minWidth: 170,
+            minWidth: 300,
             width: '50%',
             borderRadius: '100%',
             marginTop: 100,

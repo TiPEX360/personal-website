@@ -14,26 +14,20 @@ class App extends Component {
   }
 
   showHome() {
-    document.body.classList.add('preventScroll')
     this.setState({homePosition: 0});
   }
 
   hideHome() {
-    document.body.classList.remove('preventScroll')
     this.setState({homePosition: -100, loadContent: true,});
   }
 
   render() {
-    let content = null;
-    if(this.state.loadContent) {
-      content = <Content />
-    }
-
+  
     return (
       <React.Fragment>
         <Link to='/' className='home-link' onClick={this.showHome.bind(this)}>ts.</Link>
         <Home hideHome={this.hideHome.bind(this)} position={this.state.homePosition}/>
-        {content}
+        <Content />
       </React.Fragment>
     );
   }
