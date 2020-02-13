@@ -9,6 +9,7 @@ class App extends Component {
 
     this.state = {
         homePosition: 0,
+        loadContent: false,
     }
   }
 
@@ -19,15 +20,20 @@ class App extends Component {
 
   hideHome() {
     document.body.classList.remove('preventScroll')
-    this.setState({homePosition: -100});
+    this.setState({homePosition: -100, loadContent: true,});
   }
 
   render() {
+    let content = null;
+    if(this.state.loadContent) {
+      content = <Content />
+    }
+
     return (
       <React.Fragment>
         <Link to='/' className='home-link' onClick={this.showHome.bind(this)}>ts.</Link>
         <Home hideHome={this.hideHome.bind(this)} position={this.state.homePosition}/>
-        <Content />
+        {content}
       </React.Fragment>
     );
   }

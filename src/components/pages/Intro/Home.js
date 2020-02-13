@@ -7,7 +7,7 @@ export default class Home extends Component {
 
     render() {
 
-        const portrait = './media/main.jpg';
+        const portrait = './media/66652243_574231176437668_3566540460346310656_n (1).jpg';
         
         const flexStyle = {
             position: 'relative',
