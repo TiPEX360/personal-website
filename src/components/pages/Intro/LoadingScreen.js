@@ -24,7 +24,8 @@ export default class LoadingScreen extends Component {
             top: 0,
             height: '100%',
             width: '100%',
-            backgroundColor: '#1D1D1F',
+            //backgroundColor: '#1D1D1F',
+            backgroundColor: '#F3F3F3',
             transition: 'transform 1s cubic-bezier(.77,0,.175,1).2s',
             
         }

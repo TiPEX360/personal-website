@@ -7,6 +7,7 @@ html, body, #root {
   padding: 0;
   font-family: sans-serif;
   width: 100%;
+  color: #f3f3f3;
 }
 
 .preventScroll {
@@ -36,20 +37,24 @@ a {
 .button {
   display: inline-block;
   width: 170px;
-  padding: 3px;
+  padding: 5px;
   margin: 70px;
   border-style: solid;
-  border-width: 5px;
+  border-width: 3px;
   text-decoration: none;
-  border-color: #2b2b2b;
-  background-color: #f3f3f3;
-  color: #2b2b2b;
+  /* border-color: #2b2b2b;
+  background-color: #f3f3f3; */
+  border-color: #f3f3f3;
+  background-color: transparent;
+  color: #f3f3f3;
 }
 
 .button:hover {
   transition: background-color 0.1s, color 0.1s;
-  background-color: #2b2b2b;
-  color: #f3f3f3;
+  /* background-color: #2b2b2b;
+  color: #f3f3f3; */
+  background-color: #f3f3f3;
+  color: #2b2b2b;
 }
 
 .content {

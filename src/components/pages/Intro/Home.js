@@ -7,7 +7,7 @@ export default class Home extends Component {
 
     render() {
 
-        const portrait = './media/66652243_574231176437668_3566540460346310656_n (1).jpg';
+        const portrait = './media/silhouette.jpeg';
         
         const flexStyle = {
             position: 'relative',
@@ -20,7 +20,8 @@ export default class Home extends Component {
         
         const mainWrapperStyle = {
             position: 'fixed',
-            backgroundColor: '#f3f3f3',
+            backgroundColor: '#000000',
+            background: 'linear-gradient(0deg, rgba(18,15,10,1) 0%, rgba(29,29,18,1) 25%, rgba(24,29,18,1) 50%, rgba(25,36,27,1) 75%, rgba(19,28,20,1) 100%)',
             backgroundPosition: 'center center',
             backgroundRepeat: 'no-repeat',
             backgroundSize: '100% auto',
@@ -34,11 +35,12 @@ export default class Home extends Component {
         }
 
         const portraitStyle = {
-            maxWidth: 330,
+            maxWidth: 425,
             minWidth: 170,
-            width: '17%',
+            width: '50%',
             borderRadius: '100%',
-            margin: 100,
+            marginTop: 100,
+            mixBlendMode: 'screen',
         }
 
 
@@ -46,7 +48,7 @@ export default class Home extends Component {
                 <div style={{...mainWrapperStyle, transform: 'translateY(' + this.props.position + '%)'}}>
                     <img style={portraitStyle} src={portrait} alt='face' />
                     <LoadingScreen />
-                    <p><span style={{fontSize: 22}}><b>hi</b>, <b>i</b>'<b>m</b></span></p>
+                    <p><span style={{fontSize: 22}}>hi, i'm</span></p>
                     <div style={flexStyle}>
                         <AnimatedLetter letter='t'/>
                         <AnimatedLetter letter='y'/>

@@ -12,7 +12,7 @@ class AnimatedLetter extends Component {
         super(props);
 
         this.state = {
-            color: '#ffffff',
+            color: '#020202',
             output: null,
         }
     }
@@ -23,7 +23,7 @@ class AnimatedLetter extends Component {
     }
 
     changeColour() {
-        this.setState({color: '#020202'});
+        this.setState({color: '#f3f3f3'});
     }
 
     generateLetter() {
