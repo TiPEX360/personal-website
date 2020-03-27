@@ -25,7 +25,7 @@ class App extends Component {
   
     return (
       <React.Fragment>
-        <Link to='/' className='home-link' onClick={this.showHome.bind(this)}>ts.</Link>
+        <Link to='/portfolio' className='home-link' onClick={this.showHome.bind(this)}>ts.</Link>
         <Home hideHome={this.hideHome.bind(this)} position={this.state.homePosition}/>
         <Content />
       </React.Fragment>
