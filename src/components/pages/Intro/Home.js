@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import AnimatedLetter from '../../AnimatedLetter.js';
-import { Link } from 'react-router-dom';
 import LoadingScreen from './LoadingScreen.js';
 
 export default class Home extends Component {
@@ -55,7 +54,7 @@ export default class Home extends Component {
                         <AnimatedLetter letter='z'/> 
                     </div>
                     <p><span style={{fontSize: 15}}>(tym, for short)</span></p>
-                    <Link onClick={this.props.hideHome} className="button" to='/portfolio/more'>let me tell you a bit about myself!</Link>
+                    <div onClick={this.props.hideHome} className="button">let me tell you a bit about myself!</div>
                 </div>
         )
     }

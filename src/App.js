@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import Home from './components/pages/Intro/Home.js';
 import Content from './components/pages/Content.js';
 
@@ -25,7 +24,7 @@ class App extends Component {
   
     return (
       <React.Fragment>
-        <Link to='/portfolio' className='home-link' onClick={this.showHome.bind(this)}>ts.</Link>
+        <div className='home-link' onClick={this.showHome.bind(this)}>ts.</div>
         <Home hideHome={this.hideHome.bind(this)} position={this.state.homePosition}/>
         <Content />
       </React.Fragment>
